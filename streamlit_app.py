@@ -45,7 +45,7 @@ if ingredients_list:
         sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
 
     my_insert_stmt = """ insert into smoothies.public.orders(NAME_ON_ORDER, INGREDIENTS)
-               values ('{name_on_order}', '{ingredients_string}')"""
+               values ({name_on_order}, {ingredients_string})"""
     
     #st.write(my_insert_stmt)
     #st.stop()
