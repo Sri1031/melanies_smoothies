@@ -32,11 +32,9 @@ if ingredients_list:
 
     #st.write(ingredients_string)
 
-
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients)
-             
                values ('""" + name_on_order + """')"""
-
+    
     #st.write(my_insert_stmt)
     #st.stop()
 
@@ -45,3 +43,9 @@ if ingredients_list:
     if time_to_insert:
          session.sql(my_insert_stmt).collect()
          st.success('Your Smoothie is ordered!', icon="✅")
+
+# New section to display smoothifroot nutrition information 
+import requests
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response)
+
